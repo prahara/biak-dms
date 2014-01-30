@@ -1,0 +1,36 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>mainwindow-icon.png</file>
+    <file>dialog-login.ico</file>
+  </qresource>
+  <qresource prefix="navigate">
+    <file>control-double-left-icon.png</file>
+    <file>control-double-right-icon.png</file>
+    <file>control-stop-left-icon.png</file>
+    <file>control-stop-right-icon.png</file>
+  </qresource>
+  <qresource prefix="toolbar">
+    <file>customreport-icon.png</file>
+    <file>syslog-icon.png</file>
+    <file>journal-icon.png</file>
+    <file>account-icon.png</file>
+    <file>shelf-icon.png</file>
+    <file>location-icon.png</file>
+    <file>folder-new.png</file>
+    <file>document-new.png</file>
+    <file>detail-icon.png</file>
+    <file>find.png</file>
+    <file>project-new.png</file>
+    <file>setting.png</file>
+    <file>view-files.png</file>
+    <file>view-folder.png</file>
+    <file>view-project.png</file>
+  </qresource>
+  <qresource prefix="form">
+    <file>about-page.png</file>
+    <file>edit-icon.png</file>
+    <file>document-edit.png</file>
+    <file>network-connect.png</file>
+    <file>network-disconnect.png</file>
+  </qresource>
+</RCC>

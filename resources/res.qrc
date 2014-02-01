@@ -1,7 +1,7 @@
 <RCC>
   <qresource prefix="icon">
     <file>mainwindow-icon.png</file>
-    <file>dialog-login.ico</file>
+    <file>dialog-login.png</file>
   </qresource>
   <qresource prefix="navigate">
     <file>control-double-left-icon.png</file>
@@ -27,7 +27,7 @@
     <file>view-project.png</file>
   </qresource>
   <qresource prefix="form">
-    <file>about-page.png</file>
+    <file>dialog-password.png</file>
     <file>edit-icon.png</file>
     <file>document-edit.png</file>
     <file>network-connect.png</file>

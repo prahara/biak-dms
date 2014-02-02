@@ -35,8 +35,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # init variable
         self.tableData.refreshData()
-        self.data = self.tableData.dfList
-        self.username = "sysdefault"
+        try:
+            self.data = self.tableData.dfList
+            self.username = "sysdefault"
+        except:
+            pass
 
         # context menu variable
         self.contextAddRecord = QAction(self)
@@ -100,20 +103,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     # class function
     def refreshTableView(self):
-        # table model update
-        self.tableModel = TableModel(self,
-                                self.tableData.dfList,
-                                self.tableData.horizontalHeaderTitle[self.tableData.currentTable],
-                                self.tableData.verticalHeaderTitle
-        )
-        # table decor
-        self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.tableView.setModel(self.tableModel)
-        self.tableView.setSortingEnabled(True)
-        self.tableView.resizeColumnsToContents()
-        self.tableView.resizeRowsToContents()
-        self.tableView.horizontalHeader().setResizeMode(1, QHeaderView.Stretch)
-        self.statusBar().showMessage("%s record(s) loaded" % len(self.tableData.dfList))
+        try:
+            # table model update
+            self.tableModel = TableModel(self,
+                                    self.tableData.dfList,
+                                    self.tableData.horizontalHeaderTitle[self.tableData.currentTable],
+                                    self.tableData.verticalHeaderTitle
+            )
+            # table decor
+            self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
+            self.tableView.setModel(self.tableModel)
+            self.tableView.setSortingEnabled(True)
+            self.tableView.resizeColumnsToContents()
+            self.tableView.resizeRowsToContents()
+            self.tableView.horizontalHeader().setResizeMode(1, QHeaderView.Stretch)
+            self.statusBar().showMessage("%s record(s) loaded" % len(self.tableData.dfList))
+        except:
+            pass
 
     # slot
     def loginok(self):
@@ -121,6 +127,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         try:
             self.roleslevel = int(self.db.queryRecord("account", "acc_username", self.username)["acc_roles_level"])
         except IndexError:
+            self.roleslevel = 50
+        except AttributeError:
             self.roleslevel = 50
         self.AddDocument.username = self.username
         self.AddFolder.username = self.username
@@ -675,8 +683,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.actionAdd_Shelf.setDisabled(True)
             self.actionAdd_Location.setDisabled(True)
             self.actionJournal.setDisabled(True)
-            self.actionQuery.setDisabled(True)
-            self.actionCustom_Report.setDisabled(True)
             self.actionManage_User.setDisabled(True)
             self.actionConnection.setDisabled(True)
             self.actionSystem_Logs.setDisabled(True)
@@ -694,8 +700,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.actionConnection.setDisabled(True)
             self.actionSystem_Logs.setDisabled(True)
         elif self.roleslevel <= 800:
-            self.actionConnection.setDisabled(True)
-            self.actionSystem_Logs.setDisabled(True)
+            pass
         elif self.roleslevel >= 999:
             pass
         else:

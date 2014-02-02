@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Settings.ui'
+# Form implementation generated from reading ui file 'UI/Settings.ui'
 #
-# Created: Fri Jan 10 20:18:43 2014
+# Created: Sun Feb 02 01:23:06 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,7 +16,7 @@ class Ui_Setting(object):
         Setting.setMinimumSize(QtCore.QSize(355, 240))
         Setting.setMaximumSize(QtCore.QSize(355, 240))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("resources/setting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/toolbar/setting.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Setting.setWindowIcon(icon)
         self.pushButtonSave = QtGui.QPushButton(Setting)
         self.pushButtonSave.setGeometry(QtCore.QRect(275, 210, 75, 24))
@@ -135,3 +135,4 @@ class Ui_Setting(object):
         self.pushButtonCheckConnection.setText(QtGui.QApplication.translate("Setting", "Test Connection", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabConnection), QtGui.QApplication.translate("Setting", "Connection", None, QtGui.QApplication.UnicodeUTF8))
 
+import res_rc

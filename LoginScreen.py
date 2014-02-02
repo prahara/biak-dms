@@ -35,9 +35,9 @@ class LoginScreen(QWidget, Ui_Dialog):
             self.close()
 
     def Connected(self):
-        self.label_4.setPixmap(QtGui.QPixmap("resources/network-connect.png"))
+        self.label_4.setPixmap(QtGui.QPixmap(":/form/network-connect.png"))
     def NotConnected(self):
-        self.label_4.setPixmap(QtGui.QPixmap("resources/network-disconnect.png"))
+        self.label_4.setPixmap(QtGui.QPixmap(":/form/network-disconnect.png"))
 
 class ConnectionStatus(QThread):
     def __init__(self, parent=None):
@@ -46,8 +46,10 @@ class ConnectionStatus(QThread):
     def run(self):
         try:
             runConnStatus = db()
-            runConnStatus.connect()
-            ConnStatus = True
+            if not runConnStatus.connect() == False:
+                ConnStatus = True
+            else:
+                ConnStatus = False
         except:
             ConnStatus = False
         if ConnStatus:

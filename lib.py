@@ -351,15 +351,18 @@ class data:
 
     def refreshData(self):
         # update self.df
-        self.df = psql.read_frame(self.sql,
-                                   con=self.db.connect(),
-                                   index_col=self.tableIndexCol[self.currentTable]
-        )
-        # update self.dfToDisplay, self.dfList
-        self.df = self.df.sort_index()
-        self.dfToDisplay = self.df[self.columnToDisplayList[self.currentTable]]
-        self.dfToDisplay = self.dfToDisplay.fillna("")
-        self.dfList = list(self.dfToDisplay.itertuples(index=False))
-        self.rowCount = len(self.dfList)
-        self.columnCount = len(self.horizontalHeaderTitle[self.currentTable])
-        self.verticalHeaderTitle = [str(items) for items in self.dfToDisplay.index.tolist()]
+        try:
+            self.df = psql.read_sql(self.sql,
+                                       con=self.db.connect(),
+                                       index_col=self.tableIndexCol[self.currentTable]
+            )
+            # update self.dfToDisplay, self.dfList
+            self.df = self.df.sort_index()
+            self.dfToDisplay = self.df[self.columnToDisplayList[self.currentTable]]
+            self.dfToDisplay = self.dfToDisplay.fillna("")
+            self.dfList = list(self.dfToDisplay.itertuples(index=False))
+            self.rowCount = len(self.dfList)
+            self.columnCount = len(self.horizontalHeaderTitle[self.currentTable])
+            self.verticalHeaderTitle = [str(items) for items in self.dfToDisplay.index.tolist()]
+        except:
+            pass

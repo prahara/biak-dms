@@ -26,8 +26,8 @@
    <string>Setting</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>image/setting.png</normaloff>image/setting.png</iconset>
+   <iconset resource="../resources/res.qrc">
+    <normaloff>:/toolbar/setting.png</normaloff>:/toolbar/setting.png</iconset>
   </property>
   <widget class="QPushButton" name="pushButtonSave">
    <property name="geometry">
@@ -297,6 +297,8 @@
   <tabstop>pushButtonSave</tabstop>
   <tabstop>tabWidget</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../resources/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

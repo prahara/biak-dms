@@ -29,38 +29,41 @@ class Account(QWidget, Ui_Account):
 
     # function
     def refreshTableView(self):
-        self.tableData.currentTable = "account"
-        self.tableData.sql = "SELECT * FROM account WHERE acc_roles_level <= %s" % self.roleslevel
-        self.tableData.refreshData()
-        # var
-        self.tableList = self.tableData.dfList
-        # table model update
-        self.tableModel = tableModel(self,
-                                self.tableData.dfList,
-                                self.tableData.horizontalHeaderTitle[self.tableData.currentTable],
-                                self.tableData.verticalHeaderTitle
-        )
-        # table decor
-        self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.tableView.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.tableView.setModel(self.tableModel)
-        self.tableView.setSortingEnabled(True)
-        self.tableView.resizeColumnsToContents()
-        self.tableView.resizeRowsToContents()
-        self.tableView.horizontalHeader().setResizeMode(0, QHeaderView.Stretch)
-        if self.roleslevel == 999:
-            index = 3
-        elif self.roleslevel == 800:
-            self.comboBox0acc_roles_level.removeItem(3)
-            index = 2
-        elif self.roleslevel == 400:
-            self.comboBox0acc_roles_level.removeItem(3)
-            self.comboBox0acc_roles_level.removeItem(2)
-            index = 1
-        elif self.roleslevel == 100:
-            self.comboBox0acc_roles_level.removeItem(3)
-            self.comboBox0acc_roles_level.removeItem(2)
-            self.comboBox0acc_roles_level.removeItem(1)
+        try:
+            self.tableData.currentTable = "account"
+            self.tableData.sql = "SELECT * FROM account WHERE acc_roles_level <= %s" % self.roleslevel
+            self.tableData.refreshData()
+            # var
+            self.tableList = self.tableData.dfList
+            # table model update
+            self.tableModel = tableModel(self,
+                                    self.tableData.dfList,
+                                    self.tableData.horizontalHeaderTitle[self.tableData.currentTable],
+                                    self.tableData.verticalHeaderTitle
+            )
+            # table decor
+            self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
+            self.tableView.setSelectionMode(QAbstractItemView.SingleSelection)
+            self.tableView.setModel(self.tableModel)
+            self.tableView.setSortingEnabled(True)
+            self.tableView.resizeColumnsToContents()
+            self.tableView.resizeRowsToContents()
+            self.tableView.horizontalHeader().setResizeMode(0, QHeaderView.Stretch)
+            if self.roleslevel == 999:
+                index = 3
+            elif self.roleslevel == 800:
+                self.comboBox0acc_roles_level.removeItem(3)
+                index = 2
+            elif self.roleslevel == 400:
+                self.comboBox0acc_roles_level.removeItem(3)
+                self.comboBox0acc_roles_level.removeItem(2)
+                index = 1
+            elif self.roleslevel == 100:
+                self.comboBox0acc_roles_level.removeItem(3)
+                self.comboBox0acc_roles_level.removeItem(2)
+                self.comboBox0acc_roles_level.removeItem(1)
+        except:
+            pass
 
     def addUser(self):
         inserttuple = (

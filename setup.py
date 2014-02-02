@@ -1,7 +1,27 @@
 from distutils.core import setup
-import py2exe
-import matplotlib
+import py2exe, sys, os
+		
+opts = {
+	"py2exe": {
+		"excludes": ["_ssl", "_tkinter", "_sqlite3", "scipy", "lxml",
+					 "boto", "statsmodels", "pytables", "cython"],
+		"dll_excludes": ["w9xpopen.exe"],
+		"dist_dir": "dist",
+		"compressed": True,
+		"optimize": 2,
+		"bundle_files": 1,
+	}
+}
+win = [
+	{
+	"script": "MainWindow.py",
+	"icon_resources": [(0, "resources\mainwindow-icon.ico")],
+	"dest_base": "biak",
+	}
+]
 
-setup(console=['MainWindow.py'],
-	  data_files=matplotlib.get_py2exe_datafiles(),
+setup(windows=win,
+	  data_files=[("", ["settings.ini"])],
+	  options=opts,
+	  zipfile=None,
 	  )

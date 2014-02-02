@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'LoginScreen.ui'
+# Form implementation generated from reading ui file 'UI/LoginScreen.ui'
 #
-# Created: Sat Dec 21 14:07:53 2013
+# Created: Sun Feb 02 10:48:52 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -21,7 +21,7 @@ class Ui_Dialog(object):
         Dialog.setMinimumSize(QtCore.QSize(230, 200))
         Dialog.setMaximumSize(QtCore.QSize(230, 200))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("resources/dialog-login.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/icon/dialog-login.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
         self.BtnLogin = QtGui.QPushButton(Dialog)
         self.BtnLogin.setGeometry(QtCore.QRect(150, 160, 70, 30))
@@ -47,7 +47,7 @@ class Ui_Dialog(object):
         self.label = QtGui.QLabel(Dialog)
         self.label.setGeometry(QtCore.QRect(10, 10, 70, 60))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("resources/dialog-password.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/form/dialog-password.png"))
         self.label.setObjectName("label")
         self.label_2 = QtGui.QLabel(Dialog)
         self.label_2.setGeometry(QtCore.QRect(70, 10, 150, 20))
@@ -77,7 +77,7 @@ class Ui_Dialog(object):
         self.label_4 = QtGui.QLabel(Dialog)
         self.label_4.setGeometry(QtCore.QRect(10, 160, 41, 31))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("resources/network-connect.png"))
+        self.label_4.setPixmap(QtGui.QPixmap(":/form/network-connect.png"))
         self.label_4.setObjectName("label_4")
 
         self.retranslateUi(Dialog)
@@ -93,3 +93,4 @@ class Ui_Dialog(object):
         self.label_2.setText(QtGui.QApplication.translate("Dialog", "Biak  ", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("Dialog", "Document System", None, QtGui.QApplication.UnicodeUTF8))
 
+import res_rc
